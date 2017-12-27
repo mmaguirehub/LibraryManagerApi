@@ -21,7 +21,8 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AZURE_LIBRARY_VAULT": "https://libraryvault.vault.azure.net/secrets/LibraryDatabaseConnectionString/19db8f7f2bfd432ea86f307b63c881fe"
       },
       "applicationUrl": "http://localhost:54787/"
     }
