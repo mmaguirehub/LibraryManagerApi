@@ -10,7 +10,7 @@ namespace LibraryManagerApi
 {
     public class Program
     {
-        private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("AZURE_LIBRARY_VAULT_CONNECTION_STRING");
+        private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("AZURE_LIBRARY_VAULT_SECRETS");
 
         public static void Main(string[] args)
         {

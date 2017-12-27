@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
+using LibraryManagerApi.ConfigurationModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace LibraryManagerApi.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        public ValuesController(IOptions<LibraryConnectionString> libraryConfig)
+        {
+            var value = libraryConfig.Value.Value;
+        }
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
