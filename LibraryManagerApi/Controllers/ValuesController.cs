@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using LibraryManagerApi.ConfigurationModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace LibraryManagerApi.Controllers
@@ -8,9 +9,11 @@ namespace LibraryManagerApi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        public ValuesController(IOptions<LibraryConnectionString> libraryConfig)
+        private LibraryDatabaseConnectionString _libraryDatabaseConnectionString;
+
+        public ValuesController(IConfiguration configuration)
         {
-            var value = libraryConfig.Value.Value;
+            _libraryDatabaseConnectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
         }
 
         // GET api/values

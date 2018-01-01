@@ -6,11 +6,7 @@ namespace LibraryManagerApi.ConfigurationModels
 {
     public class LibraryDatabaseConnectionString
     {
-        public string Value { get; set; }
-
-        public LibraryDatabaseConnectionString()
-        {
-        }
+        private string Value { get; }
 
         private LibraryDatabaseConnectionString(IConfiguration configuration)
         {
