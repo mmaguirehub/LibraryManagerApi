@@ -1,11 +1,20 @@
 ﻿using System.Collections.Generic;
+using LibraryManagerApi.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace LibraryManagerApi.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private LibraryRepository _libraryRepository;
+
+        public ValuesController(IConfiguration configuration)
+        {
+            _libraryRepository = new LibraryRepository(configuration);
+        }
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()

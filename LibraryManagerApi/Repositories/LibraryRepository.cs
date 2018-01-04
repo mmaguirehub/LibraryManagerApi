@@ -5,11 +5,12 @@ namespace LibraryManagerApi.Repositories
 {
     public class LibraryRepository
     {
-        private LibraryDatabaseConnectionString connectionString;
+        private LibraryDatabaseConnectionString _connectionString;
 
         public LibraryRepository(IConfiguration configuration)
         {
-            connectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
+            _connectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
         }
+
     }
 }
