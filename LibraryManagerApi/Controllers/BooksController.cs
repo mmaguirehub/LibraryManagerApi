@@ -2,23 +2,21 @@
 using LibraryManagerApi.ConfigurationModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace LibraryManagerApi.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route("api/books")]
+    public class BooksController : Controller
     {
         private LibraryDatabaseConnectionString _libraryDatabaseConnectionString;
 
-        public ValuesController(IConfiguration configuration)
+        public BooksController(IConfiguration configuration)
         {
             _libraryDatabaseConnectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
         }
 
-        // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetBooks()
         {
             return new string[] { "value1", "value2" };
         }

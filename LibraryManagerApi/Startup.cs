@@ -1,8 +1,8 @@
-﻿using LibraryManagerApi.ConfigurationModels;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace LibraryManagerApi
 {
@@ -18,6 +18,9 @@ namespace LibraryManagerApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var output = JsonConvert.SerializeObject(Configuration);
+
+
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
         }
