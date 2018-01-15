@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using LibraryManagerApi.ConfigurationModels;
+using LibraryManagerApi.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -8,11 +8,11 @@ namespace LibraryManagerApi.Controllers
     [Route("api/books")]
     public class BooksController : Controller
     {
-        private LibraryDatabaseConnectionString _libraryDatabaseConnectionString;
+        private LibraryRepository _libraryRepository;
 
         public BooksController(IConfiguration configuration)
         {
-            _libraryDatabaseConnectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
+            _libraryRepository = new LibraryRepository(configuration);
         }
 
         [HttpGet]
