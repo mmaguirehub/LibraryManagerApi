@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LibraryManagerSpecTests
 {
     [TestClass]
-    public class LIbraryInventory
+    public class GivenTheApiConfiguration
     {
         [TestMethod]
-        public void Connection_string_retrieved()
+        public void CheckThatTheLibraryConnectionStringCanBeRetrieved()
         {
             var configuration = new ConfigurationStub();
             var booksController = new BooksController(configuration);
