@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
 
-namespace LibraryManagerSpecTests
+namespace LibraryManagerSpecTests.Stubs
 {
     public class ConfigurationStub : IConfiguration
     {

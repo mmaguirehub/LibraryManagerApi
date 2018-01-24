@@ -1,4 +1,4 @@
-﻿using LibraryManagerApi.ConfigurationModels;
+﻿using LibraryManagerApi.Models;
 using Microsoft.Extensions.Configuration;
 
 namespace LibraryManagerApi.Repositories

@@ -1,4 +1,5 @@
 using LibraryManagerApi.Controllers;
+using LibraryManagerSpecTests.Stubs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LibraryManagerSpecTests
