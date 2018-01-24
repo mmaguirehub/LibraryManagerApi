@@ -17,7 +17,7 @@ namespace LibraryManagerSpecTests
             {
                 var configuration = new ConfigurationStub();
                 var allBooks = new BooksController(configuration).GetBooks();
-                Assert.AreEqual(allBooks, _libraryRespositoryStub.GetAllBooksInInventory);
+                Assert.AreEqual(allBooks, _libraryRespositoryStub.Books());
             }
         }
 

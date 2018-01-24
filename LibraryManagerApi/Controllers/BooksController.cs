@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LibraryManagerApi.Models;
 using LibraryManagerApi.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -16,9 +17,9 @@ namespace LibraryManagerApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> GetBooks()
+        public IEnumerable<Book> GetBooks()
         {
-            return new string[] { "value1", "value2" };
+            return _libraryRepository.Books();
         }
 
         // GET api/values/5

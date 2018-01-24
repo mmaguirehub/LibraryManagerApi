@@ -8,7 +8,23 @@ namespace LibraryManagerSpecTests
     {
         public IEnumerable<Book> Books()
         {
-            throw new System.NotImplementedException();
+            return new List<Book>()
+            {
+                new Book()
+                {
+                    Id = 1,
+                    Title = "One",
+                    Price = new Money(17.70),
+                    Genre = "nonfiction",
+                    SubGenre = "trivia",
+                    Publisher = "BBC",
+                    Author = new Author()
+                    {
+                        FirstName = "David",
+                        Surname = "Bradsky"
+                    }
+                }
+            };
         }
     }
 }
