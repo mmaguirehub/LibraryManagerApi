@@ -16,6 +16,7 @@ namespace LibraryManagerApi.Repositories
             _connectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
         }
 
+        // make this async
         public IEnumerable<Book> Books()
         {
             using (var db = DbConnection())

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using LibraryManagerApi.Models;
+using LibraryManagerApi.Models.Commands;
 using LibraryManagerApi.Repositories;
 
-namespace LibraryManagerSpecTests
+namespace LibraryManagerSpecTests.Stubs
 {
     public class LibraryRepositoryStub : ILibraryRepository
     {

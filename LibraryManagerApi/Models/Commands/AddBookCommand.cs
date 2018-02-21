@@ -1,12 +1,6 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using LibraryManagerApi.Models.Commands;
-
-namespace LibraryManagerApi.Models
+﻿namespace LibraryManagerApi.Models.Commands
 {
-    [Serializable()]
-    public class Book 
+    public class AddBookCommand
     {
         public int Id { get; set; }
         public string Title { get; set; }

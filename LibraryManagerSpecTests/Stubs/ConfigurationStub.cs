@@ -12,7 +12,7 @@ namespace LibraryManagerSpecTests.Stubs
 
         private readonly Dictionary<string, string> _configurationSections = new Dictionary<string, string>()
         {
-            { "LibraryDatabaseConnectionString", "This_Is_A_Test_Configuration_ConnectionString" }
+            { "LibraryDatabaseConnectionString", "Server=tcp:libraryplatform.database.windows.net,1433;Initial Catalog=Library;Persist Security Info=False;User ID=mmlibrary;Password=hlBE5!@JXJ#l;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" }
         };
 
         public ConfigurationStub()
