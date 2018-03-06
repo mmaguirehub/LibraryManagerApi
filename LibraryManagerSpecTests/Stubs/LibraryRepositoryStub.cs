@@ -15,12 +15,13 @@ namespace LibraryManagerSpecTests.Stubs
                 {
                     Id = 1,
                     Title = "One",
-                    Price = new Money(17.70),
+                    Price = 17.70m,
                     Genre = "nonfiction",
                     SubGenre = "trivia",
                     Publisher = "BBC",
                     Author = new Author()
                     {
+                        Id = 111,
                         FirstName = "David",
                         Surname = "Bradsky"
                     }

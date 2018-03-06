@@ -21,7 +21,15 @@ namespace LibraryManagerApi.Repositories
         {
             using (var db = DbConnection())
             {
-                return db.Query<Book>("SELECT * FROM dbo.Books");
+                var response = new Dictionary<int, Book>();
+                return db.Query<Book, Author, Book>(@"
+                                SELECT book.*, author.* 
+                                FROM dbo.Books AS book INNER JOIN dbo.Authors AS author ON book.AuthorId = author.Id",
+                    (book, author) =>
+                    {
+                        book.Author = author;
+                        return book;
+                    });
             }
         }
 

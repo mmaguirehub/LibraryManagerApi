@@ -9,11 +9,12 @@ namespace LibraryManagerApi.Controllers
     [Route("api/books")]
     public class BooksController : Controller
     {
-        private LibraryRepository _libraryRepository;
+        private readonly ILibraryRepository _libraryRepository;
 
-        public BooksController(IConfiguration configuration)
+        public BooksController(IConfiguration configuration, 
+                               ILibraryRepository libraryRepository = null)
         {
-            _libraryRepository = new LibraryRepository(configuration);
+            _libraryRepository = libraryRepository ?? new LibraryRepository(configuration);
         }
 
         [HttpGet]

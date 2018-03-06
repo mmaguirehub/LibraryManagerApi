@@ -2,14 +2,14 @@ namespace LibraryManagerApi.Models
 {
     public class Money
     {
-        private readonly double _value;
+        private readonly decimal _value;
 
-        public Money(double value)
+        public Money(decimal value)
         {
             _value = value;
         }
 
-        public static Money FromPoundsAndPence(double cost)
+        public static Money FromPoundsAndPence(decimal cost)
         {
             return new Money(cost);
         }

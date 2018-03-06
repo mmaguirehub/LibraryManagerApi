@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using LibraryManagerApi.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Newtonsoft.Json;
 
 namespace LibraryManagerApi
@@ -20,9 +22,8 @@ namespace LibraryManagerApi
         {
             var output = JsonConvert.SerializeObject(Configuration);
 
-
-            services.AddMvc();
             services.AddSingleton(Configuration);
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

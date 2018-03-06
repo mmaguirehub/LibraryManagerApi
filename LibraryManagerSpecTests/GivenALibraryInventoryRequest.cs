@@ -1,5 +1,8 @@
-﻿using LibraryManagerApi.Controllers;
+﻿using System.Linq;
+using LibraryManagerApi.Controllers;
+using LibraryManagerApi.Repositories;
 using LibraryManagerSpecTests.Stubs;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LibraryManagerSpecTests
@@ -10,25 +13,21 @@ namespace LibraryManagerSpecTests
         [TestClass]
         public class ReturnAListOf
         {
-            private LibraryRepositoryStub _libraryRespositoryStub;
+            private readonly LibraryRepositoryStub _libraryRespositoryStub;
+            private readonly ConfigurationStub _configurationStub;
+
+            public ReturnAListOf()
+            {
+                _configurationStub = new ConfigurationStub();
+                _libraryRespositoryStub = new LibraryRepositoryStub();
+            }
 
             [TestMethod]
-            public void AllTheBooks()
+            public void GetAllTheBooks()
             {
-                var configuration = new ConfigurationStub();
-                var allBooks = new BooksController(configuration).GetBooks();
-                Assert.AreEqual(allBooks, _libraryRespositoryStub.Books());
+                var allBooks = new BooksController(_configurationStub, _libraryRespositoryStub).GetBooks();
+                Assert.IsTrue(allBooks.SequenceEqual(_libraryRespositoryStub.Books()));
             }
         }
-
-        [TestClass]
-        public class ReturnABookAuthoredBy
-        {
-            [TestMethod]
-            public void JKRowling()
-            {
-            }
-        }
-
     }
 }
