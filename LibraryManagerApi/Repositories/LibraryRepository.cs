@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 using Dapper;
 using LibraryManagerApi.Models;
 using Microsoft.Extensions.Configuration;
@@ -16,13 +17,12 @@ namespace LibraryManagerApi.Repositories
             _connectionString = LibraryDatabaseConnectionString.FromConfiguration(configuration);
         }
 
-        // make this async
-        public IEnumerable<Book> Books()
+        public async Task<IEnumerable<Book>> BooksAsync()
         {
-            using (var db = DbConnection())
+            using (var dbConnection = DbConnection())
             {
                 var response = new Dictionary<int, Book>();
-                return db.Query<Book, Author, Book>(@"
+                return await dbConnection.QueryAsync<Book, Author, Book>(@"
                                 SELECT book.*, author.* 
                                 FROM dbo.Books AS book INNER JOIN dbo.Authors AS author ON book.AuthorId = author.Id",
                     (book, author) =>

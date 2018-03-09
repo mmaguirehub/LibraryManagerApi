@@ -26,7 +26,7 @@ namespace LibraryManagerSpecTests
             public void GetAllTheBooks()
             {
                 var allBooks = new BooksController(_configurationStub, _libraryRespositoryStub).GetBooks();
-                Assert.IsTrue(allBooks.SequenceEqual(_libraryRespositoryStub.Books()));
+                Assert.IsTrue(allBooks.SequenceEqual(_libraryRespositoryStub.BooksAsync().Result));
             }
         }
     }

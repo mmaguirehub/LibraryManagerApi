@@ -20,7 +20,7 @@ namespace LibraryManagerApi.Controllers
         [HttpGet]
         public IEnumerable<Book> GetBooks()
         {
-            return _libraryRepository.Books();
+            return _libraryRepository.BooksAsync().Result;
         }
 
         // GET api/values/5

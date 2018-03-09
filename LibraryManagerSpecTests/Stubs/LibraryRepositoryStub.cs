@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using LibraryManagerApi.Models;
 using LibraryManagerApi.Models.Commands;
 using LibraryManagerApi.Repositories;
@@ -7,9 +8,9 @@ namespace LibraryManagerSpecTests.Stubs
 {
     public class LibraryRepositoryStub : ILibraryRepository
     {
-        public IEnumerable<Book> Books()
+        public Task<IEnumerable<Book>> BooksAsync()
         {
-            return new List<Book>()
+            var response =  new List<Book>()
             {
                 new Book()
                 {
@@ -27,6 +28,8 @@ namespace LibraryManagerSpecTests.Stubs
                     }
                 }
             };
+
+            return Task.FromResult((IEnumerable<Book>)response);
         }
     }
 }
